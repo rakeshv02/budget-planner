@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>50/30/20 Budget Planner — Free Monthly Budget Calculator | Tabutility</title>
+  <meta name="description" content="Plan your monthly budget using the 50/30/20 rule. Enter your take-home pay and see exactly how much to spend on needs, wants and savings. Adjust the split to match your goals." />
+  <link rel="canonical" href="https://budget-planner.tabutility.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://budget-planner.tabutility.com/" />
+  <meta property="og:title" content="50/30/20 Budget Planner — Free Monthly Budget Calculator" />
+  <meta property="og:description" content="Plan your monthly budget using the 50/30/20 rule. Enter your take-home pay and see exactly how much to spend on needs, wants and savings." />
+  <meta property="og:site_name" content="Tabutility" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+  <meta name="theme-color" content="#1a1a2e" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"50/30/20 Budget Planner","url":"https://budget-planner.tabutility.com/","description":"Plan your monthly budget using the 50/30/20 rule.","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"}}</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7039091592734005" crossorigin="anonymous"></script>
+  <script>window.addEventListener('load',function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-78VZWJ5B1W';document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','G-78VZWJ5B1W');});</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box}
+    body{margin:0;font-family:'Segoe UI',system-ui,Arial,sans-serif;background:#f8fafc;color:#1e293b;line-height:1.6}
+    a{color:#4f46e5;text-decoration:none}
+    nav{background:#1a1a2e;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+    .nav-brand{color:#fff;font-size:18px;font-weight:800}
+    .nav-links a{color:rgba(255,255,255,0.8);font-size:14px;margin-left:20px;font-weight:500}
+    .nav-links a:hover{color:#fff}
+    .hero{background:linear-gradient(135deg,#1a1a2e,#16213e);color:#fff;padding:40px 20px 32px;text-align:center}
+    .hero h1{font-size:clamp(24px,4vw,38px);font-weight:900;margin:0 0 10px;letter-spacing:-0.5px}
+    .hero p{color:rgba(255,255,255,0.75);margin:0;font-size:16px}
+    .wrap{max-width:780px;margin:0 auto;padding:32px 20px 60px}
+    .card{background:#fff;border-radius:16px;padding:28px;box-shadow:0 2px 16px rgba(0,0,0,0.07);margin-bottom:24px;border:1.5px solid #e8ecf2}
+    .card h2{font-size:18px;font-weight:800;margin:0 0 20px;color:#1e293b}
+    label{display:block;font-size:13px;font-weight:600;color:#64748b;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.4px}
+    input[type=number]{width:100%;padding:12px 14px 12px 28px;border:2px solid #e2e8f0;border-radius:10px;font-size:18px;font-weight:700;color:#1e293b;background:#f8fafc;outline:none;transition:border 0.2s}
+    input[type=number]:focus{border-color:#4f46e5;background:#fff}
+    .prefix-wrap{position:relative}
+    .prefix{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#64748b;font-weight:700;font-size:18px;pointer-events:none}
+    input[type=range]{width:100%;accent-color:var(--clr);height:6px;cursor:pointer}
+    .toggle-row{display:flex;gap:8px;margin-bottom:16px}
+    .toggle-btn{flex:1;padding:10px;border:2px solid #e2e8f0;border-radius:10px;background:#fff;cursor:pointer;font-size:14px;font-weight:600;color:#64748b;transition:all 0.15s;text-align:center}
+    .toggle-btn.active{border-color:#4f46e5;background:#4f46e5;color:#fff}
+    .bucket{border-radius:14px;padding:22px;margin-bottom:16px;border:2px solid transparent}
+    .bucket.needs{background:#f0fdf4;border-color:#bbf7d0;--clr:#22c55e}
+    .bucket.wants{background:#fff7ed;border-color:#fed7aa;--clr:#f97316}
+    .bucket.savings{background:#eff6ff;border-color:#bfdbfe;--clr:#3b82f6}
+    .bucket-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+    .bucket-title{font-size:17px;font-weight:800}
+    .bucket.needs .bucket-title{color:#15803d}
+    .bucket.wants .bucket-title{color:#c2410c}
+    .bucket.savings .bucket-title{color:#1d4ed8}
+    .bucket-amount{font-size:26px;font-weight:900}
+    .bucket.needs .bucket-amount{color:#16a34a}
+    .bucket.wants .bucket-amount{color:#ea580c}
+    .bucket.savings .bucket-amount{color:#2563eb}
+    .pct-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+    .pct-val{font-size:22px;font-weight:900;min-width:52px;text-align:right}
+    .bucket.needs .pct-val{color:#16a34a}
+    .bucket.wants .pct-val{color:#ea580c}
+    .bucket.savings .pct-val{color:#2563eb}
+    .examples{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+    .tag{background:rgba(255,255,255,0.7);border-radius:6px;padding:3px 10px;font-size:12px;font-weight:600;color:#475569}
+    .bar-wrap{height:16px;background:#e2e8f0;border-radius:20px;overflow:hidden;display:flex;margin-bottom:24px}
+    .bar-needs{background:#22c55e;transition:width 0.3s}
+    .bar-wants{background:#f97316;transition:width 0.3s}
+    .bar-savings{background:#3b82f6;transition:width 0.3s}
+    .bar-legend{display:flex;gap:16px;justify-content:center;font-size:13px;font-weight:600;margin-bottom:20px}
+    .dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:5px}
+    .summary-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #e2e8f0;font-size:15px}
+    .summary-row:last-child{border-bottom:none;font-weight:800;font-size:16px}
+    .ad-wrap{margin:24px 0;text-align:center;min-height:90px;background:#f8fafc;border-radius:8px;display:flex;align-items:center;justify-content:center}
+    .warning{background:#fef3c7;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;padding:12px 14px;font-size:13px;color:#92400e;display:none}
+    .warning.show{display:block}
+    footer{background:#1a1a2e;color:rgba(255,255,255,0.6);text-align:center;padding:24px 20px;font-size:14px}
+    footer a{color:#818cf8}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="https://tabutility.com" class="nav-brand">⚡ Tabutility</a>
+  <div class="nav-links">
+    <a href="https://tabutility.com">All Tools</a>
+    <a href="https://tabutility.com/blog/">Blog</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>💰 50/30/20 Budget Planner</h1>
+  <p>Build a realistic monthly budget — adjust the split to match your situation</p>
+</div>
+
+<div class="wrap">
+  <div class="card">
+    <h2>Your Monthly Income</h2>
+    <div class="toggle-row">
+      <button class="toggle-btn active" onclick="setMode('net',this)">Take-home pay</button>
+      <button class="toggle-btn" onclick="setMode('gross',this)">Gross salary (UK)</button>
+    </div>
+    <label id="income-label">Monthly take-home pay</label>
+    <div class="prefix-wrap">
+      <span class="prefix">£</span>
+      <input type="number" id="income" value="3000" min="100" step="100" oninput="update()" />
+    </div>
+    <div id="gross-note" style="display:none;margin-top:10px;font-size:13px;color:#64748b">Estimated take-home: <strong id="est-takehome">-</strong></div>
+  </div>
+
+  <div class="bar-wrap" id="bar">
+    <div class="bar-needs" id="b-needs" style="width:50%"></div>
+    <div class="bar-wants" id="b-wants" style="width:30%"></div>
+    <div class="bar-savings" id="b-savings" style="width:20%"></div>
+  </div>
+  <div class="bar-legend">
+    <span><span class="dot" style="background:#22c55e"></span>Needs</span>
+    <span><span class="dot" style="background:#f97316"></span>Wants</span>
+    <span><span class="dot" style="background:#3b82f6"></span>Savings</span>
+  </div>
+
+  <div class="bucket needs">
+    <div class="bucket-header">
+      <div>
+        <div class="bucket-title">🏠 Needs — essentials</div>
+        <div style="font-size:12px;color:#15803d;margin-top:2px">Rent, bills, food, transport, minimum debt payments</div>
+      </div>
+      <div class="bucket-amount" id="needs-amt">£1,500</div>
+    </div>
+    <div class="pct-row">
+      <input type="range" id="needs-pct" min="10" max="80" value="50" oninput="onSlide('needs')" />
+      <div class="pct-val" id="needs-pct-val">50%</div>
+    </div>
+    <div class="examples">
+      <span class="tag">🏠 Rent/mortgage</span><span class="tag">⚡ Utilities</span><span class="tag">🛒 Groceries</span><span class="tag">🚌 Transport</span><span class="tag">📱 Phone</span><span class="tag">🏥 Insurance</span>
+    </div>
+  </div>
+
+  <div class="bucket wants">
+    <div class="bucket-header">
+      <div>
+        <div class="bucket-title">🎬 Wants — lifestyle</div>
+        <div style="font-size:12px;color:#c2410c;margin-top:2px">Dining out, subscriptions, hobbies, holidays, shopping</div>
+      </div>
+      <div class="bucket-amount" id="wants-amt">£900</div>
+    </div>
+    <div class="pct-row">
+      <input type="range" id="wants-pct" min="5" max="70" value="30" oninput="onSlide('wants')" />
+      <div class="pct-val" id="wants-pct-val">30%</div>
+    </div>
+    <div class="examples">
+      <span class="tag">🍕 Eating out</span><span class="tag">🎮 Entertainment</span><span class="tag">✈️ Holidays</span><span class="tag">👗 Shopping</span><span class="tag">📺 Streaming</span><span class="tag">🏋️ Gym</span>
+    </div>
+  </div>
+
+  <div class="bucket savings">
+    <div class="bucket-header">
+      <div>
+        <div class="bucket-title">📈 Savings & debt payoff</div>
+        <div style="font-size:12px;color:#1d4ed8;margin-top:2px">Emergency fund, ISA, pension top-up, extra debt payments</div>
+      </div>
+      <div class="bucket-amount" id="savings-amt">£600</div>
+    </div>
+    <div class="pct-row">
+      <input type="range" id="savings-pct" min="5" max="70" value="20" oninput="onSlide('savings')" />
+      <div class="pct-val" id="savings-pct-val">20%</div>
+    </div>
+    <div class="examples">
+      <span class="tag">🛡️ Emergency fund</span><span class="tag">📊 Stocks & ISA</span><span class="tag">🏦 Pension</span><span class="tag">💳 Debt payoff</span>
+    </div>
+  </div>
+
+  <div class="warning" id="pct-warning">⚠️ Your percentages add up to more than 100%. Adjust the sliders to balance your budget.</div>
+
+  <div class="card" style="margin-top:8px">
+    <h2>Monthly summary</h2>
+    <div class="summary-row"><span>Monthly take-home</span><span id="sum-income">£3,000</span></div>
+    <div class="summary-row"><span>🏠 Needs (essentials)</span><span id="sum-needs">£1,500</span></div>
+    <div class="summary-row"><span>🎬 Wants (lifestyle)</span><span id="sum-wants">£900</span></div>
+    <div class="summary-row"><span>📈 Savings & debt</span><span id="sum-savings">£600</span></div>
+    <div class="summary-row"><span>Annual savings target</span><span id="sum-annual">£7,200</span></div>
+  </div>
+
+  <div class="ad-wrap">
+    <ins class="adsbygoogle" style="display:block;width:100%;min-height:90px" data-ad-client="ca-pub-7039091592734005" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
+
+  <div class="card">
+    <h2>What is the 50/30/20 rule?</h2>
+    <p style="font-size:14px;color:#475569;margin:0 0 10px">The 50/30/20 rule — popularised by Senator Elizabeth Warren — is a simple budgeting framework: spend 50% on needs, 30% on wants, and save or pay off debt with 20%. It's a starting point, not a law — adjust the split to match your income and goals.</p>
+    <p style="font-size:14px;color:#475569;margin:0">If you live in an expensive city, 60% on needs is realistic. If you're aggressively saving for a house deposit or paying off debt, shift more into the savings bucket. The tool above lets you customise the split with the sliders.</p>
+  </div>
+</div>
+
+<footer>
+  <p>⚡ <a href="https://tabutility.com">Tabutility</a> — Free financial calculators · Not financial advice</p>
+</footer>
+
+<script>
+let mode='net';
+function setMode(m,btn){
+  mode=m;
+  document.querySelectorAll('.toggle-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('income-label').textContent=m==='net'?'Monthly take-home pay':'Annual gross salary';
+  document.getElementById('gross-note').style.display=m==='gross'?'block':'none';
+  document.getElementById('income').value=m==='gross'?50000:3000;
+  update();
+}
+
+function ukTakeHome(gross){
+  const pa=12570,mr=gross/12;
+  let tax=0,ni=0;
+  const taxable=Math.max(0,gross-pa);
+  if(taxable<=37700)tax=taxable*0.20;
+  else if(taxable<=112570)tax=37700*0.20+(taxable-37700)*0.40;
+  else tax=37700*0.20+74870*0.40+(taxable-112570)*0.45;
+  const niBase=Math.max(0,Math.min(gross,50270)-pa);
+  ni=niBase*0.08+Math.max(0,gross-50270)*0.02;
+  return (gross-tax-ni)/12;
+}
+
+function fmt(n){return'£'+Math.round(n).toLocaleString('en-GB')}
+
+function update(){
+  let income=parseFloat(document.getElementById('income').value)||0;
+  if(mode==='gross'){
+    const th=ukTakeHome(income);
+    document.getElementById('est-takehome').textContent=fmt(th)+'/month';
+    income=th;
+  }
+  const np=parseInt(document.getElementById('needs-pct').value);
+  const wp=parseInt(document.getElementById('wants-pct').value);
+  const sp=parseInt(document.getElementById('savings-pct').value);
+  const total=np+wp+sp;
+  document.getElementById('pct-warning').classList.toggle('show',total>100);
+
+  const needs=income*np/100;
+  const wants=income*wp/100;
+  const savings=income*sp/100;
+
+  document.getElementById('needs-amt').textContent=fmt(needs);
+  document.getElementById('wants-amt').textContent=fmt(wants);
+  document.getElementById('savings-amt').textContent=fmt(savings);
+
+  document.getElementById('b-needs').style.width=(np/total*100)+'%';
+  document.getElementById('b-wants').style.width=(wp/total*100)+'%';
+  document.getElementById('b-savings').style.width=(sp/total*100)+'%';
+
+  document.getElementById('sum-income').textContent=fmt(income);
+  document.getElementById('sum-needs').textContent=fmt(needs);
+  document.getElementById('sum-wants').textContent=fmt(wants);
+  document.getElementById('sum-savings').textContent=fmt(savings);
+  document.getElementById('sum-annual').textContent=fmt(savings*12);
+}
+
+function onSlide(bucket){
+  const v=document.getElementById(bucket+'-pct').value;
+  document.getElementById(bucket+'-pct-val').textContent=v+'%';
+  update();
+}
+
+try{(adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}
+update();
+</script>
+</body>
+</html>
